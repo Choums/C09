@@ -1,5 +1,5 @@
 NAME = libft.a
-SRCS = ft_putchar.c ft_swap.c ft_putstr.c ft_strlen ft_strcmp.c
+SRCS = srcs/t_putchar.c srcs/ft_swap.c srcrs/ft_putstr.c srcs/ft_strlen srcs/ft_strcmp.c
 
 OBJS = ${SRCS:.c=.c}
 
