@@ -1,20 +1,21 @@
-NAME = libft.a
-SRCS = srcs/ft_putchar.c srcs/ft_swap.c srcrs/ft_putstr.c srcs/ft_strlen srcs/ft_strcmp.c
+NAME	= libft.a
 
-OBJS = ${SRCS:.c=.c}
+SRCS	= ft_putchar.c ft_swap.c ft_putstr.c ft_strlen ft_strcmp.c
 
-CC = 	gcc
-RM = 	rm -f
+OBJS	= ${addprefix srcs/, ${SRCS:.c=.c}}
 
-CFLAGS = -Wall -Wextra -Werror
+CC		= 	gcc
+RM		= 	rm -f
+
+CFLAGS	= -Wall -Wextra -Werror
 
 .c.o:
-			${CC} ${CFLAGS} -I includes -c $< -o ${<:.c=.o}
+		${CC} ${CFLAGS} -I./includes $< -o ${<:.c=.o}
 
-$(NAME): 	${OBJS}
-			ar rcs ${NAME} ${OBJS}
+all:	${NAME}
 
-all:		${NAME}
+${NAME}:	${OBJS}
+			ar -rcs $@ $^
 
 clean:
 			${RM} ${OBJS}
@@ -22,4 +23,4 @@ clean:
 fclean: 	clean
 			${RM} ${NAME}
 
-re:			fclean all
+re:			fclean ${NAME}
