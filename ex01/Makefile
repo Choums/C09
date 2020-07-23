@@ -10,7 +10,7 @@ RM		= 	rm -f
 CFLAGS	= -Wall -Wextra -Werror
 
 .c.o:
-		${CC} ${CFLAGS} -I./includes $< -o ${<:.c=.o}
+		${CC} ${CFLAGS} -c -I./includes $< -o ${<:.c=.o}
 
 all:	${NAME}
 
